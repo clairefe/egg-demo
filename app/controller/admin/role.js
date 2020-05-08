@@ -1,23 +1,19 @@
 'use strict';
 
-const Controller = require('egg').Controller;
+const BaseController = require('./base');
 
-class RoleController extends Controller {
+class RoleController extends BaseController {
   async index() {
     const { ctx } = this;
-    ctx.body = '角色列表';
+    await ctx.render('admin/role/index')
   }
   async add() {
     const { ctx } = this;
-    ctx.body = '添加角色';
+    await ctx.render('admin/role/add')
   }
   async edit() {
     const { ctx } = this;
-    ctx.body = '编辑角色';
-  }
-  async set() {
-    const { ctx } = this;
-    ctx.body = '设置权限';
+    await ctx.render('admin/role/edit')
   }
 }
 

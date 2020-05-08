@@ -15,15 +15,21 @@ module.exports = appInfo => {
   // use for cookie sign key, should change to your own and keep security
   config.keys = appInfo.name + '_1588850941751_3517';
 
+  //session setting
+  config.session = {
+    key: 'SESSION_ID',
+    maxAge: 864000,
+    httpOnly: true,
+    encrypt: true,
+    renew: true //延长会话周期
+  }
   // add your middleware config here
   config.middleware = [];
 
   //多模板引擎配置
   config.view = {
-    defaultViewEngine: 'nunjucks',
-    defaultExtension: '.nj',
     mapping: {
-      '.nj': 'nunjucks'
+      '.html': 'ejs'
     }
   };
   // // add your user config here

@@ -1,8 +1,8 @@
 'use strict';
 
-const Controller = require('egg').Controller;
+const BaseController = require('./base');
 
-class ManagerController extends Controller {
+class ManagerController extends BaseController {
   async index() {
     const { ctx } = this;
     await ctx.render('admin/manager/index')
@@ -13,11 +13,7 @@ class ManagerController extends Controller {
   }
   async edit() {
     const { ctx } = this;
-    ctx.body = '编辑用户';
-  }
-  async set() {
-    const { ctx } = this;
-    ctx.body = '设置角色';
+    await ctx.render('admin/manager/edit')
   }
 }
 
