@@ -13,3 +13,14 @@ exports.ejs = {
   package: 'egg-view-ejs',
 };
 
+exports.security = {
+  csrf: {
+    // 判断是否需要 ignore 的方法，请求上下文 context 作为第一个参数
+    ignore: ctx => {
+      if (ctx.request.url == '/alipay/alipayNotify' || ctx.request.url == '/weixinpay/weixinpayNotify') {
+        return true;
+      }
+      return false;
+    }
+  }
+};

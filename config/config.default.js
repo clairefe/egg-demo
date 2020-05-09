@@ -24,8 +24,11 @@ module.exports = appInfo => {
     renew: true //延长会话周期
   }
   // add your middleware config here
-  config.middleware = [];
+  config.middleware = ["adminAuth"];
 
+  config.adminAuth = {
+    match: '/admin'
+  }
   //多模板引擎配置
   config.view = {
     mapping: {

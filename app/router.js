@@ -21,7 +21,7 @@ module.exports = app => {
   router.get('/admin/access/edit', controller.admin.access.edit);
 
 
-  router.get('/admin/doLogin', controller.admin.login.doLogin);
+  router.post('/admin/doLogin', controller.admin.login.doLogin);
 
 
   router.get('/admin/verify', controller.admin.base.verify);
