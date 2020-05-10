@@ -2,6 +2,7 @@
 
 const Controller = require('egg').Controller;
 const svgCaptcha = require('svg-captcha');
+const md5 = require('md5');
 
 class ToolsController extends Controller {
   async captcha() {
@@ -14,6 +15,9 @@ class ToolsController extends Controller {
     });
     ctx.session.code = captcha.text; //验证码返回的文字
     return captcha
+  }
+  async md5(str) {
+    return md5(str)
   }
 }
 

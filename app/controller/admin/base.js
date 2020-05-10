@@ -4,16 +4,18 @@ const Controller = require('egg').Controller;
 const svgCaptcha = require('svg-captcha');
 
 class BaseController extends Controller {
-  async success(redirectUrl) {
+  async success(redirectUrl, message) {
     const { ctx } = this;
     await ctx.render('admin/public/success', {
-      redirectUrl: redirectUrl
+      redirectUrl: redirectUrl,
+      message: message || '操作成功！'
     })
   }
-  async error(redirectUrl) {
+  async error(redirectUrl, message) {
     const { ctx } = this;
     await ctx.render('admin/public/error', {
-      redirectUrl: redirectUrl
+      redirectUrl: redirectUrl,
+      message: message || '操作失败！'
     })
   }
 

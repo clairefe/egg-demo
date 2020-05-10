@@ -35,6 +35,13 @@ module.exports = appInfo => {
       '.html': 'ejs'
     }
   };
+
+  config.mongoose = {
+    url: 'mongodb://127.0.0.1/admin',
+    options: {},
+    // mongoose global plugins, expected a function or an array of function and options
+    plugins: [createdPlugin, [updatedPlugin, pluginOptions]],
+  };
   // // add your user config here
   // const userConfig = {
   //   // myAppName: 'egg',
