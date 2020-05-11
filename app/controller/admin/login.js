@@ -10,18 +10,16 @@ class LoginController extends BaseController {
 
   async doLogin() {
     const { ctx } = this;
-    // console.log(ctx.request.body, "=================doLogin=====request===============")
-    // console.log(ctx.session.code, "====================session==============code====================")
     //获取表单提交的数据
     const {username, password, verify} = ctx.request.body
     //判断验证码是否正确
     const code = ctx.session.code
     //验证码正确
-    if(code === verify){
+    if(code.toUpperCase() === verify.toUpperCase()){
       //对密码进行MD5加密，然后和数据库中的用户名和密码对照
       const md5Pwd = await ctx.service.tools.md5(password)
       //使用mongoose和moogdb数据库查询用户数据如果用户存在则登录成功，否则登录失败
-      const user = await ctx.model.Admin.find({"username": username, "password": md5Pwd})
+      const user = await ctx.model.Admin.find({username: username, password: md5Pwd})
       if(user.length > 0){
         ctx.session.userInfo = user[0]
         await this.success('/admin/manager', '用户登录成功！')

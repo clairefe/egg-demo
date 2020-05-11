@@ -1,7 +1,16 @@
 module.exports = app => {
   const mongoose = app.mongoose;
   const Schema = mongoose.Schema;
- 
+ //
+//  {
+//   username: "zhangsan",
+//   password: "123456",
+//   mobile: "13077777777",
+//   email: "13077777777@163.com",
+//   status: 1,
+//   is_super: 0,
+//   add_time: 1589181144903
+//  }
   const AdminSchema = new Schema({
     username: { type: String  },
     password: { type: String  },
@@ -16,5 +25,5 @@ module.exports = app => {
     }
   });
  
-  return mongoose.model('Admin', UserSchema, 'admin');
+  return mongoose.model('Admin', AdminSchema);
 }
