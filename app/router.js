@@ -29,4 +29,7 @@ module.exports = app => {
   router.get('/admin/verify', controller.admin.base.verify);
 
 
+  router.post('/admin/role/doAdd', controller.admin.role.doAdd);
+  router.post('/admin/role/doEdit', controller.admin.role.doEdit);
+
 };

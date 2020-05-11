@@ -37,7 +37,7 @@ module.exports = appInfo => {
   };
 
   config.mongoose = {
-    url: 'mongodb://192.168.40.86/xiaomi',
+    url: 'mongodb://192.168.40.86/eggxiaomi',
     options: {},
   };
   // // add your user config here

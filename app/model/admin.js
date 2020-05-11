@@ -25,5 +25,5 @@ module.exports = app => {
     }
   });
  
-  return mongoose.model('Admin', AdminSchema);
+  return mongoose.model('Admin', AdminSchema, 'admin');
 }
