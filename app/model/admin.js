@@ -18,7 +18,7 @@ module.exports = app => {
     email: { type: String  },
     status: { type: Number, default: 1 },
     role_id: { type: Schema.Types.ObjectId },
-    is_super: {type: Number},
+    is_super: {type: Number, default: 0},  //1超级管理员
     add_time: {
       type: Number,
       default: new Date().getTime()

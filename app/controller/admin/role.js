@@ -56,16 +56,6 @@ class RoleController extends BaseController {
     await this.success('/admin/role', '编辑角色成功！')
   }
 
-  async doDelete() {
-    const { ctx } = this;
-    const {title, description, _id} = ctx.request.body
-    await ctx.model.Role.update({'_id': _id}, {
-      title,
-      description
-    })
-    await this.success('/admin/role', '编辑角色成功！')
-  }
-
 }
 
 module.exports = RoleController;
