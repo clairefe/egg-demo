@@ -4,6 +4,7 @@ module.exports = options => {
   return async function adminAuth(ctx, next) {
     const pathname = url.parse(ctx.request.url).pathname;
     ctx.state.csrf = ctx.csrf;
+    ctx.state.prevPage = ctx.request.headers['referer'];
     //if没有登录跳登录
     //else登录之后走下一步流程
     if(ctx.session.userInfo){

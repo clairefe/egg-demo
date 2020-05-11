@@ -27,9 +27,13 @@ module.exports = app => {
 
 
   router.get('/admin/verify', controller.admin.base.verify);
-
+  router.get('/admin/delete', controller.admin.base.delete);
 
   router.post('/admin/role/doAdd', controller.admin.role.doAdd);
   router.post('/admin/role/doEdit', controller.admin.role.doEdit);
+  router.post('/admin/role/doDelete', controller.admin.role.doDelete);
+
+
+
 
 };
