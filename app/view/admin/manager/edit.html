@@ -31,8 +31,11 @@
                                     <select name="role_id" id="role_id">
 
                                             <%for(var i=0;i<roleResult.length;i++){%>
-
-                                            <option value="<%=roleResult[i]._id%>"><%=roleResult[i].title%></option>
+                                              <%if(roleResult[i]._id.toString() == data.role_id ){%>
+                                                <option selected value="<%=roleResult[i]._id%>"><%=roleResult[i].title%></option>
+                                              <%}else{%>
+                                                <option value="<%=roleResult[i]._id%>"><%=roleResult[i].title%></option>
+                                              <%}%>
 
                                             <%}%>
                                     </select>

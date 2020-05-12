@@ -53,13 +53,20 @@ class ManagerController extends BaseController {
       await this.success('/admin/manager', '新增管理员成功！')
     }
   }
-  //新增管理员
+  //编辑管理员
   async doEdit() {
     const { ctx } = this;
     const editObj = ctx.request.body
     await ctx.model.Admin.update({'_id': editObj._id}, editObj)
     await this.success('/admin/manager', '编辑管理员成功！')
-    
+  }
+  //模糊搜索
+  async doSearch() {
+    const { ctx } = this;
+    const {key} = ctx.request.body
+    const queryKey = new RegExp(key, 'i') //模糊查询参数
+    const data = await ctx.model.Admin.find().or([{ username: queryKey }]);
+    //await this.success('/admin/manager', '数据查询成功！')
   }
 }
 
