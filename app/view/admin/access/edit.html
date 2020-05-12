@@ -20,43 +20,43 @@
         
                                     <input type="hidden" name="_csrf" value="<%=csrf%>">
                                     <input type="hidden" name="_id" value="<%=data._id%>">
-                                    <li>  模块名称: <input type="text" name="module_name"/></li>
+                                    <li>  模块名称: <input type="text" name="module_name" value="<%=data.module_name%>" /></li>
                                     <li>
                                         
                                         节点类型:
                                         <!-- 1、表示模块   2、表示菜单     3、操作 -->
-                                        <select name="type" id="type">
-                                                <option value="1">模块</option>
-                                                <option value="2">菜单</option>
-                                                <option value="3">操作</option>
+                                        <select name="type" id="type" value="<%=data.type%>">
+                                            <option value="1">模块</option>
+                                            <option value="2">菜单</option>
+                                            <option value="3">操作</option>
                                         </select>
         
                                     </li>
         
-                                    <li>  操作名称: <input type="text" name="action_name"/></li>
+                                    <li>  操作名称: <input type="text" name="action_name" value="<%=data.action_name%>"/></li>
         
-                                    <li>  操作地址: <input type="text" name="url"/></li>
+                                    <li>  操作地址: <input type="text" name="url" value="<%=data.url%>"/></li>
         
         
-                                    {# <li>  所属模块:
+                                    <li>  所属模块:
                                             <select name="module_id" id="module_id">
                                                     <option value="0">---顶级模块--</option>
                                                     
-                                                    <%for(var i=0;i<moduleList.length;i++){%>
+                                                  
+                                                     <%for(var i=0;i<moduleList.length;i++){%>
                                                          <option value="<%=moduleList[i]._id%>"><%=moduleList[i].module_name%></option> 
 
                                                     <%}%>
-                                                    
                                             </select>
-                                    </li> #}
+                                    </li>
         
         
-                                    <li>  排　　序: <input type="text" name="sort" value="100"/></li>
+                                    <li>  排　　序: <input type="text" name="sort" value="<%=data.sort%>"/></li>
         
         
                                     <li>   描　　述 :	
         
-                                        <textarea name="description" id="description" cols="60" rows="5"></textarea>
+                                        <textarea name="description" id="description" cols="60" rows="5"><%=data.description%></textarea>
                                     </li>
         
                                    

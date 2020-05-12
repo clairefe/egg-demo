@@ -1,7 +1,8 @@
 'use strict';
 
 const Controller = require('egg').Controller;
-const svgCaptcha = require('svg-captcha');
+const fs = require('fs');
+const path = require('path');
 
 class BaseController extends Controller {
   async success(redirectUrl, message) {
@@ -32,6 +33,17 @@ class BaseController extends Controller {
     const id = ctx.request.query.id;
     await ctx.model[model].deleteOne({"_id": id})
     await ctx.redirect(ctx.state.prevPage)
+  }
+
+  async createStaticHtml(filename, viewContent) {
+    const { ctx } = this;
+    console.log(ctx, '=========ctx=================')
+    const target = path.join('app/dist/pages', `${filename}.html`)
+    fs.writeFile(target, viewContent,function(err){
+      if(err){
+        console.log(err)
+      }
+    })
   }
 }
 

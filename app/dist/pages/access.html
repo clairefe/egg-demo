@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>egg后台管理系统</title>
+</head>
+<body>
+<!--The content below is only a placeholder and can be replaced.-->
+
+<link rel="stylesheet" href="/public/admin/bootstrap/css/bootstrap.css">
+
+<link rel="stylesheet" href="/public/admin/css/basic.css">
+
+<script type="text/javascript" src="/public/admin/bootstrap/js/jquery-1.10.1.js"></script>
+
+<script type="text/javascript" src="/public/admin/js/base.js"></script>
+
+
+
+
+<nav class="navbar navbar-inverse" role="navigation">
+    <div class="container-fluid">
+        <div class="navbar-header">
+
+            <img src="/public/admin/images/node.jpg" height="44px;" />
+
+        </div>
+        <div class="collapse navbar-collapse" id="example-navbar-collapse">           
+            <ul class="nav navbar-nav navbar-right">
+                <li><a>欢迎您,test</a>
+                </li>
+                <li><a href="/admin/loginOut">安全退出</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-2">
+            <ul class="aside">
+         		
+    <li>
+        <h4>管理员管理</h4>
+        
+        <ul>
+            <li  class="list-group-item"> <a href="/admin/manager"> 管理员列表</a></li>
+            
+            <li class="list-group-item"> <a href="/admin/manager/add">增加管理员</a></li>
+        </ul>
+    </li>
+
+    <li>
+        <h4>角色管理</h4>
+        <ul>
+            <li  class="list-group-item"> <a href="/admin/role"> 角色列表</a></li>
+            
+            <li class="list-group-item"> <a href="/admin/role/add" >增加角色</a></li>
+        </ul>
+    </li>
+
+    <li>
+            <h4>权限管理</h4>
+            <ul>
+                <li  class="list-group-item"> <a href="/admin/access"> 权限列表</a></li>
+                
+                <li class="list-group-item"> <a href="/admin/access/add" >增加权限</a></li>
+            </ul>
+    </li>
+    
+   
+    <!-- <li>
+        <h4>商品管理</h4>
+        
+        <ul>
+            <li  class="list-group-item"> <a href="/"> 商品列表</a></li>
+            
+            <li class="list-group-item"> <a href="/add">增加商品</a></li>
+        </ul>
+    </li>
+    
+    <li>
+        <h4>轮播图管理</h4>
+        
+        <ul>
+            <li  class="list-group-item"> <a href="/">轮播图列表</a></li>
+            
+            <li class="list-group-item"> <a href="/add">轮播图商品</a></li>
+        </ul>
+    </li> -->
+    
+</ul>
+			
+          
+        </div>
+        <div class="col-sm-10">
+           
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    搜索角色
+                </div>
+                <div class="panel-body">
+                    <form role="form" class="form-inline">
+                        <div class="form-group">
+                            <label for="name">名称</label>
+                            <input type="text" class="form-control" id="name" placeholder="请输入名称">
+                        </div>
+
+                        <div class="form-group">
+                            <button type="submit" class="btn btn-default">开始搜索</button>
+                            <a href="/admin/doCreateHtml">下载html页面</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <!--
+                列表展示
+            -->
+            <div class="table-responsive">
+                <table class="table table-bordered">
+                <thead>
+                        <tr>
+                            <th>模块名称</th>
+                            <th>节点类型</th>
+                            <th>操作名称</th>     
+                            <th>操作地址</th>                        
+                            <th>排序</th>
+                            <th>描述</th>                       
+                            
+                            <th class="text-center">操作</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        
+
+
+                        
+                            <tr>
+                                <td>角色管理</td>
+                                <td>     
+                                        
+                                            模块
+                                        
+                                </td>
+                                <td></td>
+
+                                <td></td>
+                                <td>200</td>
+
+                                <td>角色管理</td>
+                            
+                                <td class="text-center"><a href="/admin/access/edit?id=5eba3134f3b94b3f47f99168">修改</a>     <a href="/admin/delete?model=Access&id=5eba3134f3b94b3f47f99168">删除</a></td>
+                            </tr>
+
+                           
+                        
+                            <tr>
+                                <td>管理员管理</td>
+                                <td>     
+                                        
+                                            模块
+                                        
+                                </td>
+                                <td></td>
+
+                                <td></td>
+                                <td>100</td>
+
+                                <td>管理员管理</td>
+                            
+                                <td class="text-center"><a href="/admin/access/edit?id=5eba33f0f941ab4149556add">修改</a>     <a href="/admin/delete?model=Access&id=5eba33f0f941ab4149556add">删除</a></td>
+                            </tr>
+
+                           
+                        
+                            <tr>
+                                <td>权限管理</td>
+                                <td>     
+                                        
+                                            模块
+                                        
+                                </td>
+                                <td></td>
+
+                                <td></td>
+                                <td>300</td>
+
+                                <td>权限管理</td>
+                            
+                                <td class="text-center"><a href="/admin/access/edit?id=5eba33fef941ab4149556ade">修改</a>     <a href="/admin/delete?model=Access&id=5eba33fef941ab4149556ade">删除</a></td>
+                            </tr>
+
+                           
+                        
+                            <tr>
+                                <td>管理员管理</td>
+                                <td>     
+                                        
+                                            菜单
+                                        
+                                </td>
+                                <td>管理员列表</td>
+
+                                <td>/admin/manager</td>
+                                <td>110</td>
+
+                                <td>管理员列表</td>
+                            
+                                <td class="text-center"><a href="/admin/access/edit?id=5eba3a0e2adf01616297fad4">修改</a>     <a href="/admin/delete?model=Access&id=5eba3a0e2adf01616297fad4">删除</a></td>
+                            </tr>
+
+                           
+                        
+                            <tr>
+                                <td>管理员管理</td>
+                                <td>     
+                                        
+                                            菜单
+                                        
+                                </td>
+                                <td>增加管理员</td>
+
+                                <td>/admin/manager/add</td>
+                                <td>120</td>
+
+                                <td>增加管理员</td>
+                            
+                                <td class="text-center"><a href="/admin/access/edit?id=5eba3a3e2adf01616297fad5">修改</a>     <a href="/admin/delete?model=Access&id=5eba3a3e2adf01616297fad5">删除</a></td>
+                            </tr>
+
+                           
+                        
+                            <tr>
+                                <td>角色管理</td>
+                                <td>     
+                                        
+                                            菜单
+                                        
+                                </td>
+                                <td>角色列表</td>
+
+                                <td>/admin/role</td>
+                                <td>210</td>
+
+                                <td>角色列表</td>
+                            
+                                <td class="text-center"><a href="/admin/access/edit?id=5eba3a612adf01616297fad6">修改</a>     <a href="/admin/delete?model=Access&id=5eba3a612adf01616297fad6">删除</a></td>
+                            </tr>
+
+                           
+                        
+                            <tr>
+                                <td>角色管理</td>
+                                <td>     
+                                        
+                                            菜单
+                                        
+                                </td>
+                                <td>增加角色</td>
+
+                                <td>/admin/role/add</td>
+                                <td>220</td>
+
+                                <td>增加角色</td>
+                            
+                                <td class="text-center"><a href="/admin/access/edit?id=5eba3a852adf01616297fad7">修改</a>     <a href="/admin/delete?model=Access&id=5eba3a852adf01616297fad7">删除</a></td>
+                            </tr>
+
+                           
+                        
+                            <tr>
+                                <td>权限管理</td>
+                                <td>     
+                                        
+                                            菜单
+                                        
+                                </td>
+                                <td>权限列表</td>
+
+                                <td>/admin/access</td>
+                                <td>310</td>
+
+                                <td>权限列表</td>
+                            
+                                <td class="text-center"><a href="/admin/access/edit?id=5eba3abc2adf01616297fad8">修改</a>     <a href="/admin/delete?model=Access&id=5eba3abc2adf01616297fad8">删除</a></td>
+                            </tr>
+
+                           
+                        
+                            <tr>
+                                <td>权限管理</td>
+                                <td>     
+                                        
+                                            模块
+                                        
+                                </td>
+                                <td>增加权限</td>
+
+                                <td>/admin/access/add</td>
+                                <td>320</td>
+
+                                <td>增加权限</td>
+                            
+                                <td class="text-center"><a href="/admin/access/edit?id=5eba3ae12adf01616297fad9">修改</a>     <a href="/admin/delete?model=Access&id=5eba3ae12adf01616297fad9">删除</a></td>
+                            </tr>
+
+                           
+                        
+
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
