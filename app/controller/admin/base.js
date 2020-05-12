@@ -37,13 +37,16 @@ class BaseController extends Controller {
 
   async createStaticHtml(filename, viewContent) {
     const { ctx } = this;
-    console.log(ctx, '=========ctx=================')
     const target = path.join('app/dist/pages', `${filename}.html`)
     fs.writeFile(target, viewContent,function(err){
       if(err){
         console.log(err)
       }
     })
+  }
+  //菜单menu显示
+  async renderMenu() {
+    const { ctx } = this;
   }
 }
 

@@ -25,10 +25,22 @@
                                         
                                         节点类型:
                                         <!-- 1、表示模块   2、表示菜单     3、操作 -->
-                                        <select name="type" id="type" value="<%=data.type%>">
+                                        <select name="type" id="type">
+                                        <%if(data.type == "1" ){%>
+                                            <option selected value="1">模块</option>
+                                        <%}else{%>
                                             <option value="1">模块</option>
+                                        <%}%>
+                                        <%if(data.type == "2" ){%>
+                                            <option selected value="2">菜单</option>
+                                        <%}else{%>
                                             <option value="2">菜单</option>
+                                        <%}%>
+                                        <%if(data.type == "3" ){%>
+                                            <option selected value="3">操作</option>
+                                        <%}else{%>
                                             <option value="3">操作</option>
+                                        <%}%>
                                         </select>
         
                                     </li>
@@ -40,13 +52,18 @@
         
                                     <li>  所属模块:
                                             <select name="module_id" id="module_id">
-                                                    <option value="0">---顶级模块--</option>
-                                                    
-                                                  
-                                                     <%for(var i=0;i<moduleList.length;i++){%>
-                                                         <option value="<%=moduleList[i]._id%>"><%=moduleList[i].module_name%></option> 
-
-                                                    <%}%>
+                                              <%if(data.module_id.toString() == "0" ){%>
+                                                  <option selected value="0">---顶级模块--</option>
+                                              <%}else{%>
+                                                  <option value="0">---顶级模块--</option>
+                                              <%}%>
+                                              <%for(var i=0;i<moduleList.length;i++){%>
+                                                <%if(data.module_id.toString() == moduleList[i]._id.toString() ){%>
+                                                    <option selected value="<%=moduleList[i]._id%>"><%=moduleList[i].module_name%></option> 
+                                                <%}else{%>
+                                                    <option value="<%=moduleList[i]._id%>"><%=moduleList[i].module_name%></option> 
+                                                <%}%>
+                                             <%}%>     
                                             </select>
                                     </li>
         
