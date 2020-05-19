@@ -36,23 +36,47 @@ class RoleController extends BaseController {
 
   async auth() {
     const { ctx } = this;
-    const list = await ctx.model.Access.aggregate([{
-      $lookup: {
-        from: 'access',
-        localField: '_id',
-        foreignField: 'module_id',
-        as: 'items'
-      }
-    }, {
-      $match: {
-        'module_id': '0'
-      }
-    }, {
-      $sort: {
-        'sort': 1
-      }
-    }])
     const role_id = ctx.query.id
+    //获取所有的权限
+    // const list = await ctx.model.Access.aggregate([{
+    //   $lookup: {
+    //     from: 'access',
+    //     localField: '_id',
+    //     foreignField: 'module_id',
+    //     as: 'items'
+    //   }
+    // }, {
+    //   $match: {
+    //     'module_id': '0'
+    //   }
+    // }, {
+    //   $sort: {
+    //     'sort': 1
+    //   }
+    // }])
+    // //获取role_id对应的权限
+    // const roleList = await ctx.model.RoleAccess.find({'role_id': role_id})
+    // //对roleList的权限筛选
+    // let roleAccess = []
+    // roleList.forEach(item => {
+    //   roleAccess.push(item.access_id.toString())
+    // })
+    // //遍历所有的数据然后对选中的数据checked
+    // list.forEach(item => {
+    //   if(roleAccess.includes(item._id.toString())){
+    //     item.checked = true
+    //   }else{
+    //     item.checked = false
+    //   }
+    //   item.items.forEach(subItem => {
+    //     if(roleAccess.includes(subItem._id.toString())){
+    //       subItem.checked = true
+    //     }else{
+    //       subItem.checked = false
+    //     }
+    //   })
+    // })
+    const list = await ctx.service.admin.getAuthList(role_id)
     await ctx.render('admin/role/auth', {
       userInfo: ctx.session.userInfo,
       role_id,
@@ -85,13 +109,19 @@ class RoleController extends BaseController {
 
   async doAuth() {
     const { ctx } = this;
-    console.log(ctx.request.body, "============body======================")
-    // const {title, description, _id} = ctx.request.body
-    // await ctx.model.Role.update({'_id': _id}, {
-    //   title,
-    //   description
-    // })
-    // await this.success('/admin/role', '编辑角色成功！')
+    const { role_id, access_node } = ctx.request.body;
+    //删除改角色对应的所有的权限
+    await ctx.model.RoleAccess.deleteMany({'role_id': role_id});
+    //给用户绑定权限
+    access_node.forEach(item => {
+      const data = new ctx.model.RoleAccess({
+        role_id,
+        access_id: item
+      })
+      data.save()
+    })
+
+    await this.success('/admin/role', '角色授权成功！')
   }
   
 }
